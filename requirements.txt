@@ -1,0 +1,11 @@
+rouge-score
+transformers>=4.28.1
+openai
+scikit-learn
+torch
+nltk
+spacy
+matplotlib
+bs4
+convokit
+nlpaug
