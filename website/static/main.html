@@ -13,14 +13,16 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Share+Tech&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
 	<div id="navbar">
 		<h1 id="navbar-left">EDMaL</h1>
 		<span id="navbar-spacer"></span>
-		<p id="navbar-credits">Made by Dr Chieu Hai Leong <br/> and Ang Jun Ray</p>
-		<a href="https://github.com/AJR07/EDMaL" id="github"><img src="./static/assets/github.png" alt="github-link"  /></a>
+		<p id="navbar-credits">Made by Dr Chieu Hai Leong <br /> and Ang Jun Ray</p>
+		<a href="https://github.com/AJR07/EDMaL" id="github"><img src="./static/assets/github.png"
+				alt="github-link" /></a>
 	</div>
 
 	<div id="home">
@@ -44,15 +46,22 @@
 
 	<div id="item-selector-container">
 		<div id="item-selector">
-			<h3>SVM</h3>
+			<h3 class="selected">SVM</h3>
 			<h3>RFC</h3>
 			<h3>Edit Distance</h3>
 			<h3>Cosine Similarity</h3>
 		</div>
 		<span id="item-selector-slider"></span>
 	</div>
-	<!-- scripts -->
-	<script src="{{ url_for('static', filename='scripts/selector.js') }}"></script>
+
+	<div id="detector">
+		{% include "pages/svm.html" %}
+		{% include "pages/rfc.html" %}
+		{% include "pages/cosinesimilarity.html" %}
+		{% include "pages/editdistance.html" %}
+	</div>
+	<script type="text/javascript" src="{{url_for('static', filename='scripts/selector.js')}}"></script>
+
 </body>
 
 </html>
