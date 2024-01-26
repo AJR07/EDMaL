@@ -5,6 +5,6 @@ app = Flask(__name__, template_folder="")
 @app.route("/home")
 @app.route("/")
 def hello_world():
-    return render_template("/main.html")
+    return render_template("./main.html")
 
 app.run(port=8000, debug=True)
