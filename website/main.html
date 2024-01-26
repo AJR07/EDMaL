@@ -19,21 +19,22 @@
 		<h1 id="navbar-left">EDMaL</h1>
 		<span id="navbar-spacer"></span>
 		<div id="navbar-right-container">
-			<div id="navbar-right">
-				<h3>Home</h3>
-				<h3>SVM</h3>
-				<h3>RFC</h3>
-				<h3>Edit Distance</h3>
-				<h3>Cosine Similarity</h3>
-			</div>
-			<span id="navbar-slider"></span>
+
 		</div>
 	</div>
-	{% block content %}
-	Error 404 - Page not found
-	{% endblock %}
+
+	<div id="item-selector-container">
+		<div id="item-selector">
+			<h3>Home</h3>
+			<h3>SVM</h3>
+			<h3>RFC</h3>
+			<h3>Edit Distance</h3>
+			<h3>Cosine Similarity</h3>
+		</div>
+		<span id="item-selector-slider"></span>
+	</div>
 	<!-- scripts -->
-	<script src="{{ url_for('static', filename='scripts/navbar.js') }}"></script>
+	<script src="{{ url_for('static', filename='scripts/selector.js') }}"></script>
 </body>
 
 </html>

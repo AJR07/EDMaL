@@ -3,6 +3,7 @@
 body {
 	margin: 0;
 	background-color: rgba(0, 0, 0);
+	color: var(--primary-color);
 	font-family: 'Share Tech', sans-serif;
 	width: 100vw;
 	height: 100vh;
@@ -11,13 +12,11 @@ body {
 #navbar {
 	display: flex;
 	flex-direction: row;
-	position: fixed;
 	width: 98vw;
 	height: 50px;
 	margin-left: 1vw;
 	margin-right: 1vw;
 
-	color: var(--primary-color);
 }
 
 #navbar-left {
@@ -28,35 +27,39 @@ body {
 	flex: 1;
 }
 
-#navbar-right-container {
+/* item-selector */
+
+#item-selector-container {
+	margin: 1vw;
 	display: flex;
 	flex-direction: column;
 }
 
-#navbar-right {
+#item-selector {
 	display: flex;
 	flex-direction: row;
 	user-select: none;
 	gap: 2vw;
 }
 
-#navbar-right > h3 {
+#item-selector > h3 {
 	position: relative;
 	cursor: pointer;
-	opacity: 0.7;
+	opacity: 0.8;
 	transition: all 0.4s ease-in-out;
 }
 
-#navbar-right > h3:hover {
+#item-selector > h3:hover {
 	opacity: 1;
 	scale: 1.1;
 }
 
-#navbar-slider {
-	position: absolute;
+#item-selector-slider {
+	position: relative;
 	bottom: 0;
-	width: 1vw;
-	height: 0.5vh;
+	width: 0;
+	height: 0.2vh;
+	margin: -1vw;
 	background-color: rgba(255, 255, 255, 0.9);
 	transition: all 0.5s ease-in-out;
 }
