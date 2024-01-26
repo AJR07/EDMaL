@@ -55,10 +55,12 @@
 	</div>
 
 	<div id="detector">
-		{% include "pages/svm.html" %}
-		{% include "pages/rfc.html" %}
-		{% include "pages/cosinesimilarity.html" %}
-		{% include "pages/editdistance.html" %}
+		{% with functions=functions %}
+			{% include "pages/svm.html" %}
+			{% include "pages/rfc.html" %}
+			{% include "pages/cosinesimilarity.html" %}
+			{% include "pages/editdistance.html" %}
+		{% endwith %}
 	</div>
 	<script type="text/javascript" src="{{url_for('static', filename='scripts/selector.js')}}"></script>
 

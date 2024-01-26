@@ -1,11 +1,24 @@
 .detection-box {
 	position: absolute;
 	margin: 1vw;
-	width: 98vw;
+	padding: 1vw;
+	width: 96vw;
 
-
-	border: 1px solid rgb(var(--secondary-color));
+	border-radius: 1.5vw;
+	border: 3px solid rgb(var(--secondary-color));
 
 	opacity: 0;
 	transition: all 0.2s ease-in-out;
+}
+
+textarea {
+	width: 100%;
+	padding: 0.2vw;
+
+	resize: none;
+	border: 2px white solid;
+	border-radius: 0.5vw;
+	background: none;
+	color: rgb(var(--primary-color));
+	font-family: "Share Tech", sans-serif;
 }
