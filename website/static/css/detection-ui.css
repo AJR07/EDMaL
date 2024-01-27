@@ -1,24 +1,67 @@
 .detection-box {
 	position: absolute;
 	margin: 1vw;
+	margin-left: 0vw;
 	padding: 1vw;
+	padding-top: 0vw;
 	width: 96vw;
 
-	border-radius: 1.5vw;
 	border: 3px solid rgb(var(--secondary-color));
+	color: rgba(var(--primary-color), 0.8);
 
 	opacity: 0;
 	transition: all 0.2s ease-in-out;
 }
 
-textarea {
+.detect-run {
+	background-color: rgb(var(--primary-color), 0.8);
+	border: none;
+
 	width: 100%;
-	padding: 0.2vw;
+	margin-top: 1vw;
+
+	font-family: "Share Tech", sans-serif;
+	font-size: 3vw;
+	cursor: pointer;
+
+	transition: all 0.2s ease-in-out;
+}
+
+.detect-run:hover {
+	background-color: rgb(var(--primary-color), 0.9);
+	scale: 1.005;
+}
+
+.detect-run:active {
+	background-color: rgb(var(--primary-color), 1);
+	scale: 0.995;
+}
+
+.text-area {
+	width: 99%;
+	padding: 0.5%;
 
 	resize: none;
 	border: 2px white solid;
+	color: rgba(255, 255, 255, 0.7);
 	border-radius: 0.5vw;
+	
 	background: none;
 	color: rgb(var(--primary-color));
 	font-family: "Share Tech", sans-serif;
+}
+
+.disabled {
+	background-color: grey;
+	cursor: not-allowed
+}
+
+.disabled:hover {
+	background-color: grey;
+	scale: 1;
+}
+
+.disabled:active {
+	background-color: grey;
+	scale: 1;
 }

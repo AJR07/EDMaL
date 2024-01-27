@@ -17,10 +17,6 @@ def prune(txt: str):
 		no_emails=True,
 		no_phone_numbers=True,
 		no_currency_symbols=True,
-		replace_with_url="<URL>",
-		replace_with_email="<EMAIL>",
-		replace_with_phone_number="<PHONE>",
-		replace_with_currency_symbol="<CUR>",
 		lang="en"
 	)
 	txt = emoji_pattern.sub(r'', txt) # no emoji

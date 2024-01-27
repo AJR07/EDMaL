@@ -3,10 +3,13 @@
 
 body {
 	margin: 0;
+	margin-left: 1vw;
 	background-color: rgba(0, 0, 0);
 	color: rgb(var(--primary-color));
 	font-family: 'Share Tech', sans-serif;
+
 	width: 100vw;
+	overflow-x: hidden;
 	height: 100vh;
 }
 
@@ -51,7 +54,6 @@ body {
 /* item-selector */
 
 #item-selector-container {
-	margin: 1vw;
 	display: flex;
 	flex-direction: column;
 }
@@ -82,7 +84,7 @@ body {
 	height: 0.2vh;
 	margin: -1vw;
 	background-color: rgba(var(--secondary-color), 0.9);
-	transition: all 0.5s ease-in-out;
+	transition:  all 0.5s ease-in-out;
 }
 
 /* home */
@@ -111,4 +113,8 @@ body {
 	margin: 0;
 	font-size: 2vw;
 	font-weight: lighter;
+}
+
+#note {
+	margin-top: 3vw;
 }

@@ -1,6 +1,33 @@
 <!DOCTYPE html>
 
 <div id="cosine-similarity" class="detection-box">
-	<h1>Cosine Similarity</h1>
-	<textarea id="text-area" placeholder="Enter your text here..."></textarea>
+	<h2>Cosine Similarity</h2>
+	<textarea class="text-area" id="cosine-similarity-text" placeholder="Enter your text here..."></textarea>
+	<button class="detect-run" id="cosine-similarity-run">Check Origin</button>
+
+	<h3>1. Text Pruning </h3>
+	<p class="text-area" id="cosine-similarity-text-pruning-result"></p>
+
+	<h3>2. Mask out half</h3>
+	<label for="cosine-similarity-mask-result1">- Truncated Text</label>
+	<p class="text-area" id="cosine-similarity-mask-result1"></p>
+	<label for="cosine-similarity-mask-result2">- Masked Text</label>
+	<p class="text-area" id="cosine-similarity-mask-result2"></p>
+
+	<h3>3. Regenerate new half</h3>
+	<p class="text-area" id="cosine-similarity-regenerate"></p>
+
+	<h3>4. Word Embeddings for new half</h3>
+	<p class="text-area" id="cosine-similarity-word-embeddings-new"></p>
+
+	<h3>5. Word Embeddings for old half</h3>
+	<p class="text-area" id="cosine-similarity-word-embeddings-old"></p>
+
+	<h3>6. Cosine Similarity Score</h3>
+	<p class="text-area" id="cosine-similarity-score"></p>
+
+	<h3>6. Cosine Similarity Classificaion</h3>
+	<p class="text-area" id="cosine-similarity-classification"></p>
 </div>
+
+<script type="text/javascript" src="{{url_for('static', filename='pages/cosinesimilarity.js')}}"></script>

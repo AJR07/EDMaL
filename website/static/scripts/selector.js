@@ -22,13 +22,13 @@ for (let i = 0; i < itemSelector.children.length; i++) {
 		setTimeout(() => {
 			// hide oldElement
 			oldElement.style.display = "none";
+			oldElement.style.zIndex = 0;
 
 			// transition newElement in by fading
 			newElement.style.display = "block";
 			newElement.style.opacity = 1;
+			newElement.style.zIndex = 1;
 		}, 200);
-
-
 
 		// change selected classname
 		document.getElementsByClassName("selected")[0].classList.remove("selected");
