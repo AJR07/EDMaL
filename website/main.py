@@ -1,7 +1,9 @@
 from flask import Flask, render_template, request, jsonify 
 from src.prune import prune
-from src.tokenization_and_embed import tokenize
+from src.cosine_similarity import cosine_similarity
 from src.regenerate import regenerate
+import warnings
+warnings.filterwarnings('ignore', category=UserWarning, message='TypedStorage is deprecated')
 
 app = Flask(__name__, template_folder="static")
 
@@ -11,7 +13,7 @@ def api_prune():
     try:
         data = request.get_json()
         input_data = data['input_data']
-
+    
         result = prune(input_data)
         return jsonify(result=result)
     except Exception as e:
@@ -30,13 +32,14 @@ def api_regenerate():
         print(e)
         return jsonify(error=str(e)), 500
     
-@app.route("/api/tokenize-embed", methods=["POST"])
-def api_tokenize_embed():
+@app.route("/api/cosine-similarity", methods=["POST"])
+def api_cos_similarity():
     try:
         data = request.get_json()
-        input_data = data['input_data']
+        text1 = data['text1']
+        text2 = data['text2']
 
-        result = tokenize(input_data)
+        result = cosine_similarity(text1, text2)
         return jsonify(result=result)
     except Exception as e:
         print(e)

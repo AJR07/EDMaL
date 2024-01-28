@@ -1,6 +1,7 @@
 const button = document.getElementById("cosine-similarity-run")
 button.addEventListener("click", async () => {
 	button.classList.add("disabled");
+	button.disabled = true;
 
 	const resultElements = [
 		document.getElementById("cosine-similarity-text-pruning-result"),
@@ -11,6 +12,8 @@ button.addEventListener("click", async () => {
 		document.getElementById("cosine-similarity-word-embeddings-new"),
 		document.getElementById("cosine-similarity-tokenized-old"),
 		document.getElementById("cosine-similarity-word-embeddings-old"),
+		document.getElementById("cosine-similarity-score"),
+		document.getElementById("cosine-similarity-result")
 	];
 
 	for (let element of resultElements) {
@@ -48,41 +51,30 @@ button.addEventListener("click", async () => {
 				"Content-Type": "application/json"
 			}
 		});
-		data = (await response.json()).result.slice(truncatedHalf.length + 343);
-		resultElements[3].innerHTML = data;
+		let regeneratedHalf = (await response.json()).result.slice(truncatedHalf.length + 343);
+		resultElements[3].innerHTML = regeneratedHalf;
 
-		//! tokenize and embed maskedHalf
-		response = await fetch("/api/tokenize-embed", {
+		//! cosineSimilarity
+		response = await fetch("/api/cosine-similarity", {
 			method: "POST",
 			body: JSON.stringify({
-				input_data: maskedHalf
+				text1: maskedHalf,
+				text2: regeneratedHalf
 			}),
 			headers: {
 				"Content-Type": "application/json"
 			}
 		});
-		let maskedHalfEmbedding = (await response.json()).result;
-		resultElements[4].innerHTML = maskedHalfEmbedding[0];
-		resultElements[5].innerHTML = maskedHalfEmbedding[1];
-
-		//! tokenize and embed regenerated half
-		response = await fetch("/api/tokenize-embed", {
-			method: "POST",
-			body: JSON.stringify({
-				input_data: data
-			}),
-			headers: {
-				"Content-Type": "application/json"
-			}
-		});
-		let regeneratedHalfEmbedding = (await response.json()).result;
-		resultElements[6].innerHTML = regeneratedHalfEmbedding[0];
-		resultElements[7].innerHTML = regeneratedHalfEmbedding[1];
-
-
-
+		let [tokensMasked, embeddingsMasked, tokensRegenerated, embeddingsRegenerated, cosineSimilarityScore] = (await response.json()).result;
+		resultElements[4].innerHTML = tokensMasked;
+		resultElements[5].innerHTML = embeddingsMasked.map((x) => x.toFixed(3));
+		resultElements[6].innerHTML = tokensRegenerated;
+		resultElements[7].innerHTML = embeddingsRegenerated.map((x) => x.toFixed(3));
+		resultElements[8].innerHTML = cosineSimilarityScore;
+		resultElements[9].innerHTML = (cosineSimilarityScore > 0.764 ? "AI-Generated" : "Human-Written")
 	} catch (error) {
 		console.error(error);
 	}
+	button.disabled = false;
 	button.classList.remove("disabled");
 });

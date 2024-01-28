@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <div id="cosine-similarity" class="detection-box">
-	<h2>Cosine Similarity</h2>
+	<h2>Cosine Similarity [On Reddit Min 500, FPR: 10%, TPR: 71.1%, Threshold: 76.4]</h2>
 	<textarea class="text-area" id="cosine-similarity-text" placeholder="Enter your text here..."></textarea>
 	<button class="detect-run" id="cosine-similarity-run">Check Origin</button>
 
@@ -19,7 +19,7 @@
 	</details>
 
 	<details open>
-		<summary>3. Regenerate new half</summary>
+		<summary>3. Regenerated new half</summary>
 		<p class="text-area" id="cosine-similarity-regenerate"></p>
 	</details>
 
@@ -27,6 +27,7 @@
 		<summary>4. Word Embeddings for old (masked) half</summary>
 		<label for="cosine-similarity-tokenized-new">- Tokenized Masked Text</label>
 		<p class="text-area" id="cosine-similarity-tokenized-new"></p>
+		<label for="cosine-similarity-word-embeddings-new">- Calculated Embeddings</label>
 		<p class="text-area" id="cosine-similarity-word-embeddings-new"></p>
 	</details>
 
@@ -34,18 +35,18 @@
 		<summary>5. Word Embeddings for new (regenerated) half</summary>
 		<label for="cosine-similarity-tokenized-new">- Tokenized Regenerated Text</label>
 		<p class="text-area" id="cosine-similarity-tokenized-old"></p>
+		<label for="cosine-similarity-word-embeddings-old">- Calculated Embeddings</label>
 		<p class="text-area" id="cosine-similarity-word-embeddings-old"></p>
 	</details>
 
 	<details open>
-
 		<summary>6. Cosine Similarity Score</summary>
 		<p class="text-area" id="cosine-similarity-score"></p>
 	</details>
+	
 	<details open>
-
 		<summary>7. Cosine Similarity Classificaion</summary>
-		<p class="text-area" id="cosine-similarity-classification"></p>
+		<p class="text-area" id="cosine-similarity-result"></p>
 	</details>
 
 </div>
