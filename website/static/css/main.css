@@ -90,7 +90,6 @@ body {
 /* home */
 #home {
 	margin: 1vw;
-	margin-left: 5vw;
 	padding-left: 5vw;
 	padding-right: 5vw;
 	font-family: 'Rubik Mono One', monospace;
@@ -104,12 +103,14 @@ body {
 	align-items: center;
 }
 
-#home > div > h1 {
+#home > h1 {
+	display: inline-block;
 	margin: 0;
 	font-size: 5vw;
 }
 
-#home > div > h2 {
+#home  > h2 {
+	display: inline-block;
 	margin: 0;
 	font-size: 2vw;
 	font-weight: lighter;

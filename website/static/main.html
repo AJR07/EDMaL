@@ -26,22 +26,14 @@
 	</div>
 
 	<div id="home">
-		<div>
-			<h1>E</h1>
-			<h2>hanced</h2>
-		</div>
-		<div>
-			<h1>D</h1>
-			<h2>etection of AI-generated text using</h2>
-		</div>
-		<div>
-			<h1>Ma</h1>
-			<h2>chine</h2>
-		</div>
-		<div>
-			<h1>L</h1>
-			<h2>earning</h2>
-		</div>
+		<h1>E</h1>
+		<h2>hanced</h2>
+		<h1>D</h1>
+		<h2>etection of AI-generated text using</h2>
+		<h1>Ma</h1>
+		<h2>chine</h2>
+		<h1>L</h1>
+		<h2>earning</h2>
 	</div>
 
 	<div id="item-selector-container">
@@ -54,14 +46,16 @@
 		<span id="item-selector-slider"></span>
 	</div>
 
-	<p id="note">Note: For the sake of the demo, the <b>number of regenerations is set to 1</b> and the <b>truncate ratio is set to 50%</b>. Only GPT-2 (instead of GPT-3.5-Turbo) and BERT (instead of Ada2) will be used.</p>
+	<p id="note">Note: For the sake of the demo, the <b>number of regenerations is set to 1</b> and the <b>truncate
+			ratio is set to 50%</b>. Only GPT-2 (instead of GPT-3.5-Turbo) and BERT (instead of Ada2) will be used. Many
+		other parameters cannot match the research paper due to financial constraints.</p>
 
 	<div id="detector">
 		{% with functions=functions %}
-			{% include "pages/svm.html" %}
-			{% include "pages/rfc.html" %}
-			{% include "pages/cosinesimilarity.html" %}
-			{% include "pages/editdistance.html" %}
+		{% include "pages/svm.html" %}
+		{% include "pages/rfc.html" %}
+		{% include "pages/cosinesimilarity.html" %}
+		{% include "pages/editdistance.html" %}
 		{% endwith %}
 	</div>
 	<script type="text/javascript" src="{{url_for('static', filename='scripts/selector.js')}}"></script>

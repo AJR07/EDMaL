@@ -5,29 +5,49 @@
 	<textarea class="text-area" id="cosine-similarity-text" placeholder="Enter your text here..."></textarea>
 	<button class="detect-run" id="cosine-similarity-run">Check Origin</button>
 
-	<h3>1. Text Pruning </h3>
-	<p class="text-area" id="cosine-similarity-text-pruning-result"></p>
+	<details open>
+		<summary>1. Text Pruning </summary>
+		<p class="text-area" id="cosine-similarity-text-pruning-result"></p>
+	</details>
 
-	<h3>2. Mask out half</h3>
-	<label for="cosine-similarity-mask-result1">- Truncated Text</label>
-	<p class="text-area" id="cosine-similarity-mask-result1"></p>
-	<label for="cosine-similarity-mask-result2">- Masked Text</label>
-	<p class="text-area" id="cosine-similarity-mask-result2"></p>
+	<details open>
+		<summary>2. Mask out half</summary>
+		<label for="cosine-similarity-mask-result1">- Truncated Text</label>
+		<p class="text-area" id="cosine-similarity-mask-result1"></p>
+		<label for="cosine-similarity-mask-result2">- Masked Text</label>
+		<p class="text-area" id="cosine-similarity-mask-result2"></p>
+	</details>
 
-	<h3>3. Regenerate new half</h3>
-	<p class="text-area" id="cosine-similarity-regenerate"></p>
+	<details open>
+		<summary>3. Regenerate new half</summary>
+		<p class="text-area" id="cosine-similarity-regenerate"></p>
+	</details>
 
-	<h3>4. Word Embeddings for new half</h3>
-	<p class="text-area" id="cosine-similarity-word-embeddings-new"></p>
+	<details open>
+		<summary>4. Word Embeddings for old (masked) half</summary>
+		<label for="cosine-similarity-tokenized-new">- Tokenized Masked Text</label>
+		<p class="text-area" id="cosine-similarity-tokenized-new"></p>
+		<p class="text-area" id="cosine-similarity-word-embeddings-new"></p>
+	</details>
 
-	<h3>5. Word Embeddings for old half</h3>
-	<p class="text-area" id="cosine-similarity-word-embeddings-old"></p>
+	<details open>
+		<summary>5. Word Embeddings for new (regenerated) half</summary>
+		<label for="cosine-similarity-tokenized-new">- Tokenized Regenerated Text</label>
+		<p class="text-area" id="cosine-similarity-tokenized-old"></p>
+		<p class="text-area" id="cosine-similarity-word-embeddings-old"></p>
+	</details>
 
-	<h3>6. Cosine Similarity Score</h3>
-	<p class="text-area" id="cosine-similarity-score"></p>
+	<details open>
 
-	<h3>6. Cosine Similarity Classificaion</h3>
-	<p class="text-area" id="cosine-similarity-classification"></p>
+		<summary>6. Cosine Similarity Score</summary>
+		<p class="text-area" id="cosine-similarity-score"></p>
+	</details>
+	<details open>
+
+		<summary>7. Cosine Similarity Classificaion</summary>
+		<p class="text-area" id="cosine-similarity-classification"></p>
+	</details>
+
 </div>
 
 <script type="text/javascript" src="{{url_for('static', filename='pages/cosinesimilarity.js')}}"></script>

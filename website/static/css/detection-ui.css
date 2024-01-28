@@ -13,6 +13,12 @@
 	transition: all 0.2s ease-in-out;
 }
 
+.detection-box > details > summary {
+	color: rgb(var(--secondary-color));
+	font-size: larger;
+	cursor: pointer;
+}
+
 .detect-run {
 	background-color: rgb(var(--primary-color), 0.8);
 	border: none;
@@ -40,14 +46,13 @@
 .text-area {
 	width: 99%;
 	padding: 0.5%;
+	margin: 0.5%;
 
 	resize: none;
-	border: 2px white solid;
-	color: rgba(255, 255, 255, 0.7);
-	border-radius: 0.5vw;
+	border: 1px white solid;
 	
 	background: none;
-	color: rgb(var(--primary-color));
+	color: rgba(var(--primary-color), 0.8);
 	font-family: "Share Tech", sans-serif;
 }
 

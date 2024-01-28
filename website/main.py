@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, jsonify 
 from src.prune import prune
-from src.tokenization import tokenize
+from src.tokenization_and_embed import tokenize
 from src.regenerate import regenerate
 
 app = Flask(__name__, template_folder="static")
@@ -15,6 +15,7 @@ def api_prune():
         result = prune(input_data)
         return jsonify(result=result)
     except Exception as e:
+        print(e)
         return jsonify(error=str(e)), 500
 
 @app.route("/api/regenerate", methods=["POST"])
@@ -26,10 +27,11 @@ def api_regenerate():
         result = regenerate(input_data)
         return jsonify(result=result)
     except Exception as e:
+        print(e)
         return jsonify(error=str(e)), 500
     
-@app.route("/api/tokenization", methods=["POST"])
-def api_tokenization():
+@app.route("/api/tokenize-embed", methods=["POST"])
+def api_tokenize_embed():
     try:
         data = request.get_json()
         input_data = data['input_data']
@@ -37,6 +39,7 @@ def api_tokenization():
         result = tokenize(input_data)
         return jsonify(result=result)
     except Exception as e:
+        print(e)
         return jsonify(error=str(e)), 500
 
 
