@@ -10,7 +10,7 @@ for (let i = 0; i < itemSelector.children.length; i++) {
 	element.addEventListener("click", () => {
 		let details = element.getBoundingClientRect();
 		slider.style.width = details.width + "px";
-		slider.style.left = (details.x - 1) + "px";
+		slider.style.left = details.x + "px";
 
 		let id = element.innerHTML.toLowerCase().replace(" ", "-");
 		const newElement = document.getElementById(id);

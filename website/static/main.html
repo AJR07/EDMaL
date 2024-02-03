@@ -2,52 +2,63 @@
 <html lang="en">
 
 <head>
-	<meta charset="UTF-8">
 	<title>EDMaL</title>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
 
 	<!-- styles -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 	<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
 
 	<!-- fonts -->
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Share+Tech&display=swap" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap" rel="stylesheet">
-
+	<link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
 </head>
 
 <body>
-	<div id="navbar">
-		<h1 id="navbar-left">EDMaL</h1>
-		<span id="navbar-spacer"></span>
-		<p id="navbar-credits">Made by Dr Chieu Hai Leong <br /> and Ang Jun Ray</p>
-		<a href="https://github.com/AJR07/EDMaL" id="github"><img src="./static/assets/github.png"
-				alt="github-link" /></a>
+	<div class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<div class="container-fluid">
+			<h1 class="navbar-brand bold">EDMaL</h1>
+			<div class="d-flex gap-2">
+				<p class="nav-item text-end">Made by Dr Chieu Hai Leong <br /> and Ang Jun Ray</p>
+				<a href="https://github.com/AJR07/EDMaL" class="navbar-brand">
+					<img src="./static/assets/github.png" alt="github-link" width="50" />
+				</a>
+			</div>
+		</div>
 	</div>
 
-	<div id="home">
-		<h1>E</h1>
-		<h2>hanced</h2>
-		<h1>D</h1>
-		<h2>etection of AI-generated text using</h2>
-		<h1>Ma</h1>
-		<h2>chine</h2>
-		<h1>L</h1>
-		<h2>earning</h2>
+	<div id="title">
+		<h1 class=" d-inline-block fs-1 fw-bold">E</h1>
+		<h2 class="d-inline-block fs-3">hanced</h2>
+		<h1 class="d-inline-block fs-1 fw-bold">&#160;D</h1>
+		<h2 class="d-inline-block fs-3">etection of AI-generated text using</h2>
+		<h1 class="d-inline-block fs-1 fw-bold">&#160;Ma</h1>
+		<h2 class="d-inline-block fs-3">chine</h2>
+		<h1 class="d-inline-block fs-1 fw-bold">&#160;L</h1>
+		<h2 class="d-inline-block fs-3">earning</h2>
 	</div>
 
 	<div id="item-selector-container">
 		<div id="item-selector">
-			<h3 class="selected">SVM</h3>
-			<h3>RFC</h3>
-			<h3>Edit Distance</h3>
-			<h3>Cosine Similarity</h3>
+			<button class="btn btn-dark selected fw-bold w-100">SVM</button>
+			<button class="btn btn-dark fw-bold w-100">RFC</button>
+			<button class="btn btn-dark fw-bold w-100">Edit Distance</button>
+			<button class="btn btn-dark fw-bold w-100">Cosine Similarity</button>
 		</div>
 		<span id="item-selector-slider"></span>
 	</div>
 
-	<p id="note">Note: For the sake of the demo, the <b>number of regenerations is set to 1</b> and the <b>truncate
-			ratio is set to 50%</b>. Only GPT-2 (instead of GPT-3.5-Turbo) and all-MiniLM-L6-v2 (instead of Ada2) will be used. Many
+	<p id="note" class="alert alert-secondary">Note: For the sake of the demo, the <b>number of regenerations
+			is set to
+			1</b> and the <b>truncate
+			ratio is set to 50%</b>. Only GPT-2 (instead of GPT-3.5-Turbo) and all-MiniLM-L6-v2 (instead of Ada2) will
+		be used. Many
 		other parameters cannot match the research paper due to financial constraints.</p>
 
 	<div id="detector">
@@ -60,6 +71,10 @@
 	</div>
 	<script type="text/javascript" src="{{url_for('static', filename='scripts/selector.js')}}"></script>
 
+	<!-- boostrap -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+		crossorigin="anonymous"></script>
 </body>
 
 </html>

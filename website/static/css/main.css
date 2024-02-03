@@ -2,53 +2,13 @@
 @import url("detection-ui.css");
 
 body {
-	margin: 0;
-	margin-left: 1vw;
-	background-color: rgba(0, 0, 0);
+	background-color: #1c1e1f;
 	color: rgb(var(--primary-color));
-	font-family: 'Share Tech', sans-serif;
+	font-family: Inter, sans-serif;
 
 	width: 100vw;
-	overflow-x: hidden;
 	height: 100vh;
-}
-
-#navbar {
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	width: 98vw;
-	height: 50px;
-	margin-left: 1vw;
-	margin-right: 1vw;
-}
-
-#navbar-left {
-	height: max-content;
-}
-
-#navbar-spacer {
-	flex: 1 0;
-}
-
-#navbar-right {
-	width: min-content;
-}
-
-#navbar-credits {
-	text-align: right;
-	bottom: 0;
-}
-
-#github {
-	width: auto;
-	height: 100%;
-	cursor: pointer;
-}
-
-#github > img {
-	width: 100%;
-	height: 100%;
+	overflow-x: hidden;
 }
 
 /* item-selector */
@@ -56,6 +16,7 @@ body {
 #item-selector-container {
 	display: flex;
 	flex-direction: column;
+	margin: 1%;
 }
 
 #item-selector {
@@ -83,39 +44,20 @@ body {
 	width: 0;
 	height: 0.2vh;
 	margin: -1vw;
+	margin-top: 0vw;
 	background-color: rgba(var(--secondary-color), 0.9);
 	transition:  all 0.5s ease-in-out;
 }
 
-/* home */
-#home {
-	margin: 1vw;
-	padding-left: 5vw;
-	padding-right: 5vw;
-	font-family: 'Rubik Mono One', monospace;
+/* title */
+#title {
+	font-family: apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
 	color: rgb(var(--secondary-color));
+	margin: 1%;
 }
 
-#home > div {
-	display: flex;
-	flex-direction: row;
-	gap: 1vw;
-	align-items: center;
-}
-
-#home > h1 {
-	display: inline-block;
-	margin: 0;
-	font-size: 5vw;
-}
-
-#home  > h2 {
-	display: inline-block;
-	margin: 0;
-	font-size: 2vw;
-	font-weight: lighter;
-}
 
 #note {
-	margin-top: 3vw;
+	margin: 1%;
+	margin-top: 3%;
 }
