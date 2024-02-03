@@ -1,7 +1,7 @@
-const button = document.getElementById("cosine-similarity-run")
-button.addEventListener("click", async () => {
-	button.classList.add("disabled");
-	button.disabled = true;
+const buttonCosineSimilarity = document.getElementById("cosine-similarity-run")
+buttonCosineSimilarity.addEventListener("click", async () => {
+	buttonCosineSimilarity.classList.add("disabled");
+	buttonCosineSimilarity.disabled = true;
 
 	const resultElements = [
 		document.getElementById("cosine-similarity-text-pruning-result"),
@@ -65,16 +65,16 @@ button.addEventListener("click", async () => {
 				"Content-Type": "application/json"
 			}
 		});
-		let [tokensMasked, embeddingsMasked, tokensRegenerated, embeddingsRegenerated, cosineSimilarityScore] = (await response.json()).result;
+		let [tokensMasked, embeddingsMasked, tokensRegenerated, embeddingsRegenerated, cosineSimilarityScore, prediction] = (await response.json()).result;
 		resultElements[4].innerHTML = tokensMasked;
 		resultElements[5].innerHTML = embeddingsMasked.map((x) => x.toFixed(3));
 		resultElements[6].innerHTML = tokensRegenerated;
 		resultElements[7].innerHTML = embeddingsRegenerated.map((x) => x.toFixed(3));
 		resultElements[8].innerHTML = cosineSimilarityScore;
-		resultElements[9].innerHTML = (cosineSimilarityScore > 0.764 ? "AI-Generated" : "Human-Written")
+		resultElements[9].innerHTML = prediction;
 	} catch (error) {
 		console.error(error);
 	}
-	button.disabled = false;
-	button.classList.remove("disabled");
+	buttonCosineSimilarity.disabled = false;
+	buttonCosineSimilarity.classList.remove("disabled");
 });

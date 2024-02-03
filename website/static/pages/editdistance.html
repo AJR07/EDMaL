@@ -1,3 +1,46 @@
 <!DOCTYPE html>
 
-<div id="edit-distance"class="detection-box"></div>
+<div id="edit-distance" class="detection-box">
+	<h2>Edit Distance [On Reddit Min 500, FPR: 40.2%, TPR: 55.0%, Threshold: -729.1]</h2>
+	<textarea class="text-area" id="edit-distance-text" placeholder="Enter your text here..."></textarea>
+	<button class="detect-run" id="edit-distance-run">Check Origin</button>
+
+	<details open>
+		<summary>1. Text Pruning </summary>
+		<p class="text-area" id="edit-distance-text-pruning-result"></p>
+	</details>
+
+	<details open>
+		<summary>2. Mask out half</summary>
+		<label for="edit-distance-mask-result1">- Truncated Text</label>
+		<p class="text-area" id="edit-distance-mask-result1"></p>
+		<label for="edit-distance-mask-result2">- Masked Text</label>
+		<p class="text-area" id="edit-distance-mask-result2"></p>
+	</details>
+
+	<details open>
+		<summary>3. Regenerated new half</summary>
+		<p class="text-area" id="edit-distance-regenerate"></p>
+	</details>
+
+	<details open>
+		<summary>4. Tokenize Text</summary>
+		<label for="edit-distance-tokenized-old">- Tokenized Masked Text</label>
+		<p class="text-area" id="edit-distance-tokenized-old"></p>
+		<label for="edit-distance-tokenized-new">- Tokenized Regenerated Text</label>
+		<p class="text-area" id="edit-distance-tokenized-new"></p>
+	</details>
+
+	<details open>
+		<summary>5. Edit Distance Score</summary>
+		<p class="text-area" id="edit-distance-score"></p>
+	</details>
+	
+	<details open>
+		<summary>6. Edit Distance Classificaion</summary>
+		<p class="text-area" id="edit-distance-result"></p>
+	</details>
+
+</div>
+
+<script type="text/javascript" src="{{url_for('static', filename='pages/editdistance.js')}}"></script>

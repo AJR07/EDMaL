@@ -16,4 +16,4 @@ def cosine_similarity(text1, text2):
     # Compute the cosine similarity.
     cosine_similarity_score = util.pytorch_cos_sim(embedding1, embedding2)
 
-    return [tokens1, [x.item() for x in embedding1], tokens2, [x.item() for x in embedding2], cosine_similarity_score[0].item()]
+    return [tokens1, [x.item() for x in embedding1], tokens2, [x.item() for x in embedding2], cosine_similarity_score[0].item(), "AI Generated" if cosine_similarity_score[0].item() > 0.613 else "Human Written"]
