@@ -43,29 +43,34 @@
 		<h2 class="d-inline-block fs-3">earning</h2>
 	</div>
 
-	<div id="note" class="bg-dark alert m-3 d-flex gap-2 flex-row align-content-center" role="alert">
-		<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor"
-			class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img"
-			aria-label="Warning:">
-			<path
-				d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
-		</svg>
-		<div>
-			NOTE: Due to financial constraints and for the purposes of this demo, some parameters have been changed:
-			<ul>
-				<li>Regeneration Number: <b>K = 1</b> (instead of the optimal K = 5 configuration)</li>
-				<li>Regeneration Model: <b>GPT-2 from huggingface</b> (instead of the GPT-3.5-Turbo model tested)</li>
-				<li>Truncation Ratio: <b>γ = 0.5</b></li>
-				<li>Embeddings Generation Model for Cosine Similarity: <b>all-MiniLM-L6-v2 from huggingface</b> (instead
-					of
-					the
-					Ada2 model tested)</li>
-			</ul>
-			As such, results could be far from optimal and should be taken with a grain of salt.
-		</div>
+	<div id="download-buttons" class="d-flex g-2">
+		<a class="m-3 w-100" download href="{{url_for('static', filename='assets/Report.pdf')}}">
+			<button type="button" class="btn btn-dark w-100">Download Report</button>
+		</a>
+		<a class="m-3 w-100" download href="{{url_for('static', filename='assets/svm.pkl')}}">
+			<button type="button" class="btn btn-dark w-100">Download SVM Model</button>
+		</a>
+		<a class="m-3 w-100" download href="{{url_for('static', filename='assets/rfc.pkl')}}">
+			<button type="button" class="btn btn-dark w-100">Download RFC Model</button>
+		</a>
 	</div>
 
-	<div id="item-selector-container" class="d-flex	flex-column m-3">
+	<div id="note" class="bg-dark alert m-3 d-flex gap-2 flex-column justify-content-center" role="alert">
+		NOTE: Due to financial constraints and for the purposes of this demo, some parameters have been changed:
+		<ul>
+			<li><b>Regeneration Number:</b> K = 1 (instead of the optimal <b>K = 5</b> configuration)</li>
+			<li><b>Regeneration Model:</b> GPT-2 from huggingface (instead of the <b>GPT-3.5-Turbo model</b>
+				tested).</li>
+			<li><b>Truncation Ratio:</b> γ = 0.5</li>
+			<li><b>Embeddings Generation Model for Cosine Similarity:</b> all-MiniLM-L6-v2 from huggingface (instead
+				of the <b>Ada2</b> model tested)</li>
+			<li><b>Text length:</b> Length Limit of 10 words specified (these methods is only highly optimised for
+				longer texts of about <b>500 words</b> or more)</li>
+		</ul>
+		As such, results could be very inaccurate, and are to be taken with a pinch of salt.
+	</div>
+
+	<div id="item-selector-container" class="d-flex	flex-column">
 		<div id="item-selector" class="d-flex flex-row gap-3">
 			<button class="position-relative btn btn-dark selected fw-bold w-100">SVM</button>
 			<button class="position-relative btn btn-dark fw-bold w-100">RFC</button>

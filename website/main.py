@@ -4,6 +4,7 @@ from src.cosine_similarity import cosine_similarity
 from src.regenerate import regenerate
 from src.edit_distance import edit_distance
 from src.ngram import ngram
+from src.rfcsvm import rfc, svm
 
 import warnings
 warnings.filterwarnings('ignore', category=UserWarning, message='TypedStorage is deprecated')
@@ -69,6 +70,30 @@ def api_ngram():
         text2 = data['text2']
 
         result = ngram(text1, text2)
+        return jsonify(result=result)
+    except Exception as e:
+        print(e)
+        return jsonify(error=str(e)), 500
+    
+@app.route("/api/rfc", methods=["POST"])
+def api_rfc():
+    try:
+        data = request.get_json()
+        ngram = data['ngram']
+
+        result = rfc(ngram)
+        return jsonify(result=result)
+    except Exception as e:
+        print(e)
+        return jsonify(error=str(e)), 500
+    
+@app.route("/api/svm", methods=["POST"])
+def api_svm():
+    try:
+        data = request.get_json()
+        ngram = data['ngram']
+
+        result = svm(ngram)
         return jsonify(result=result)
     except Exception as e:
         print(e)

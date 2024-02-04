@@ -28,7 +28,7 @@ def ngram(masked, regenerated):
     generated_tokenized = tokenize(regenerated)
     
     # go through each possible n gram from 1 to 25
-    for _ngram in range(1, 25):
+    for _ngram in range(1, 26):
         ngram_score, _, _ = get_ngram_info(masked_tokenized, generated_tokenized, _ngram)
         ngram_scores.append(ngram_score / len(generated_tokenized))
 

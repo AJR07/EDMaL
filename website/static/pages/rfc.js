@@ -23,6 +23,11 @@ buttonRFC.addEventListener("click", async () => {
 	try {
 		//! prune data
 		let text = document.getElementById("rfc-text").value;
+		if (text.split(" ").length < 10) {
+			alert("Please enter at least 10 words.");
+			return;
+		}
+
 		let response = await fetch("/api/prune", {
 			method: "POST",
 			body: JSON.stringify({
@@ -69,7 +74,20 @@ buttonRFC.addEventListener("click", async () => {
 		resultElements[4].innerHTML = tokensMasked;
 		resultElements[5].innerHTML = tokensRegenerated;
 		resultElements[6].innerHTML = ngram.join(", ");
-		console.log(ngram.join(", "))
+
+		//! RFC Score Calculation
+		response = await fetch("/api/svm", {
+			method: "POST",
+			body: JSON.stringify({
+				ngram: ngram
+			}),
+			headers: {
+				"Content-Type": "application/json"
+			}
+		});
+		let score = (await response.json()).result;
+		resultElements[7].innerHTML = score;
+		resultElements[8].innerHTML = score == 0 ? "Human Written" : "AI Generated";
 	} catch (error) {
 		console.error(error);
 	}

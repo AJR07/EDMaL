@@ -23,6 +23,11 @@ buttonCosineSimilarity.addEventListener("click", async () => {
 	try {
 		//! prune data
 		let text = document.getElementById("cosine-similarity-text").value;
+		if (text.split(" ").length < 10) {
+			alert("Please enter at least 10 words.");
+			return;
+		}
+
 		let response = await fetch("/api/prune", {
 			method: "POST",
 			body: JSON.stringify({

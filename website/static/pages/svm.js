@@ -1,17 +1,19 @@
-const buttonEditDistance = document.getElementById("edit-distance-run")
-buttonEditDistance.addEventListener("click", async () => {
-	buttonEditDistance.classList.add("disabled");
-	buttonEditDistance.disabled = true;
+const buttonSVM = document.getElementById("svm-run");
+
+buttonSVM.addEventListener("click", async () => {
+	buttonSVM.classList.add("disabled");
+	buttonSVM.disabled = true;
 
 	const resultElements = [
-		document.getElementById("edit-distance-text-pruning-result"),
-		document.getElementById("edit-distance-mask-result1"),
-		document.getElementById("edit-distance-mask-result2"),
-		document.getElementById("edit-distance-regenerate"),
-		document.getElementById("edit-distance-tokenized-old"),
-		document.getElementById("edit-distance-tokenized-new"),
-		document.getElementById("edit-distance-score"),
-		document.getElementById("edit-distance-result")
+		document.getElementById("svm-text-pruning-result"),
+		document.getElementById("svm-mask-result1"),
+		document.getElementById("svm-mask-result2"),
+		document.getElementById("svm-regenerate"),
+		document.getElementById("svm-tokenized-old"),
+		document.getElementById("svm-tokenized-new"),
+		document.getElementById("svm-ngram"),
+		document.getElementById("svm-score"),
+		document.getElementById("svm-result")
 	];
 
 	for (let element of resultElements) {
@@ -20,7 +22,7 @@ buttonEditDistance.addEventListener("click", async () => {
 
 	try {
 		//! prune data
-		let text = document.getElementById("edit-distance-text").value;
+		let text = document.getElementById("svm-text").value;
 		if (text.split(" ").length < 10) {
 			alert("Please enter at least 10 words.");
 			return;
@@ -57,8 +59,8 @@ buttonEditDistance.addEventListener("click", async () => {
 		let regeneratedHalf = (await response.json()).result.slice(truncatedHalf.length + 343);
 		resultElements[3].innerHTML = regeneratedHalf;
 
-		//! editDistance
-		response = await fetch("/api/edit-distance", {
+		//! N Gram Calculation
+		response = await fetch("/api/ngram", {
 			method: "POST",
 			body: JSON.stringify({
 				text1: truncatedHalf,
@@ -68,14 +70,27 @@ buttonEditDistance.addEventListener("click", async () => {
 				"Content-Type": "application/json"
 			}
 		});
-		let [tokensMasked, tokensRegenerated, editDistanceScore, prediction] = (await response.json()).result;
+		let [tokensMasked, tokensRegenerated, ngram] = (await response.json()).result;
 		resultElements[4].innerHTML = tokensMasked;
 		resultElements[5].innerHTML = tokensRegenerated;
-		resultElements[6].innerHTML = editDistanceScore;
-		resultElements[7].innerHTML = prediction;
+		resultElements[6].innerHTML = ngram.join(", ");
+
+		//! SVM Score Calculation
+		response = await fetch("/api/svm", {
+			method: "POST",
+			body: JSON.stringify({
+				ngram: ngram
+			}),
+			headers: {
+				"Content-Type": "application/json"
+			}
+		});
+		let score = (await response.json()).result;
+		resultElements[7].innerHTML = score;
+		resultElements[8].innerHTML = score == 0 ? "Human Written" : "AI Generated";
 	} catch (error) {
 		console.error(error);
 	}
-	buttonEditDistance.disabled = false;
-	buttonEditDistance.classList.remove("disabled");
+	buttonSVM.disabled = false;
+	buttonSVM.classList.remove("disabled");
 });

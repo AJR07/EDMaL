@@ -18,6 +18,10 @@ body {
 
 /* item-selector */
 
+#item-selector-container {
+  margin: 1%;
+}
+
 #item-selector {
   user-select: none;
 }
@@ -35,7 +39,7 @@ body {
 
 #item-selector-slider {
   height: 0.2vh;
-  margin: -1vw;
+  margin: -1%;
   background-color: rgba(var(--secondary-color), 0.9);
   transition: all 0.5s ease-in-out;
 }
