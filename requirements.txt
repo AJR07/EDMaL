@@ -1,8 +1,10 @@
+absl-py==2.1.0
 annotated-types==0.6.0
 anyio==4.2.0
 asttokens==2.4.1
 blinker==1.7.0
 blis==0.7.11
+build==1.0.3
 catalogue==2.0.10
 certifi==2023.11.17
 charset-normalizer==3.3.2
@@ -76,11 +78,13 @@ pydantic==2.5.3
 pydantic_core==2.14.6
 Pygments==2.17.2
 pyparsing==3.1.1
+pyproject_hooks==1.0.0
 python-dateutil==2.8.2
 PyYAML==6.0.1
 pyzmq==25.1.2
 regex==2023.12.25
 requests==2.31.0
+rouge_score==0.1.2
 safetensors==0.4.2
 scikit-learn==1.4.0
 scipy==1.12.0
