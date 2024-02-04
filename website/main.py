@@ -3,6 +3,8 @@ from src.prune import prune
 from src.cosine_similarity import cosine_similarity
 from src.regenerate import regenerate
 from src.edit_distance import edit_distance
+from src.ngram import ngram
+
 import warnings
 warnings.filterwarnings('ignore', category=UserWarning, message='TypedStorage is deprecated')
 
@@ -54,6 +56,19 @@ def api_edit_distance():
         text2 = data['text2']
 
         result = edit_distance(text1, text2)
+        return jsonify(result=result)
+    except Exception as e:
+        print(e)
+        return jsonify(error=str(e)), 500
+    
+@app.route("/api/ngram", methods=["POST"])
+def api_ngram():
+    try:
+        data = request.get_json()
+        text1 = data['text1']
+        text2 = data['text2']
+
+        result = ngram(text1, text2)
         return jsonify(result=result)
     except Exception as e:
         print(e)
