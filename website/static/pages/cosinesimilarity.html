@@ -1,53 +1,108 @@
 <!DOCTYPE html>
 
 <div id="cosine-similarity" class="detection-box">
-	<h2>Cosine Similarity [On Reddit Min 500, FPR: 51.4%, TPR: 58.9%, Threshold: 0.613]</h2>
-	<textarea class="text-area" id="cosine-similarity-text" placeholder="Enter your text here..."></textarea>
-	<button class="detect-run" id="cosine-similarity-run">Check Origin</button>
+	<h2 class="fs-4 fw-normal"><b class="fs-2">Cosine Similarity</b> [On Reddit Min 500, FPR: 51.4%, TPR: 58.9%,
+		Threshold: 0.613]
+	</h2>
 
-	<details open>
-		<summary>1. Text Pruning </summary>
-		<p class="text-area" id="cosine-similarity-text-pruning-result"></p>
-	</details>
+	<div class="form-floating mb-3">
+		<textarea id="cosine-similarity-text" class="form-control bg-dark text-light text-area"></textarea>
+		<label for="cosine-similarity-text">Enter your text here:</label>
+	</div>
 
-	<details open>
-		<summary>2. Mask out half</summary>
-		<label for="cosine-similarity-mask-result1">- Truncated Text</label>
-		<p class="text-area" id="cosine-similarity-mask-result1"></p>
-		<label for="cosine-similarity-mask-result2">- Masked Text</label>
-		<p class="text-area" id="cosine-similarity-mask-result2"></p>
-	</details>
+	<button id="cosine-similarity-run" type="button" class="btn btn-success w-100">Check Origin</button>
 
-	<details open>
-		<summary>3. Regenerated new half</summary>
-		<p class="text-area" id="cosine-similarity-regenerate"></p>
-	</details>
+	<div class="mt-2 accordion" id="results">
+		<div class="accordion-item">
+			<h2 class="accordion-header">
+				<button class="accordion-button" type="button" data-bs-toggle="collapse"
+					data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
+					aria-controls="panelsStayOpen-collapseOne">
+					1. Text Pruning
+				</button>
+			</h2>
+			<div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse mx-2 my-1 show">
+				<p class="text-area" id="cosine-similarity-text-pruning-result"></p>
+			</div>
+		</div>
 
-	<details open>
-		<summary>4. Word Embeddings for old (masked) half</summary>
-		<label for="cosine-similarity-tokenized-new">- Tokenized Masked Text</label>
-		<p class="text-area" id="cosine-similarity-tokenized-new"></p>
-		<label for="cosine-similarity-word-embeddings-new">- Calculated Embeddings</label>
-		<p class="text-area" id="cosine-similarity-word-embeddings-new"></p>
-	</details>
+		<div class="accordion-item">
+			<h2 class="accordion-header">
+				<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+					data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false"
+					aria-controls="panelsStayOpen-collapseTwo">
+					2. Mask out half
+				</button>
+			</h2>
+			<div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse mx-2 my-1">
+				<label class="fw-bold fs-7" for="cosine-similarity-mask-result1">Truncated Text</label>
+				<p class="text-area" id="cosine-similarity-mask-result1"></p>
+				<label class="fw-bold fs-7" for="cosine-similarity-mask-result2">Masked Text</label>
+				<p class="text-area" id="cosine-similarity-mask-result2"></p>
+			</div>
+		</div>
 
-	<details open>
-		<summary>5. Word Embeddings for new (regenerated) half</summary>
-		<label for="cosine-similarity-tokenized-new">- Tokenized Regenerated Text</label>
-		<p class="text-area" id="cosine-similarity-tokenized-old"></p>
-		<label for="cosine-similarity-word-embeddings-old">- Calculated Embeddings</label>
-		<p class="text-area" id="cosine-similarity-word-embeddings-old"></p>
-	</details>
+		<div class="accordion-item">
+			<h2 class="accordion-header">
+				<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+					data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false"
+					aria-controls="panelsStayOpen-collapseThree">
+					3. Regenerated new half
+				</button>
+			</h2>
+			<div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse mx-2 my-1">
+				<p class="text-area" id="cosine-similarity-regenerate"></p>
+			</div>
+		</div>
 
-	<details open>
-		<summary>6. Cosine Similarity Score</summary>
-		<p class="text-area" id="cosine-similarity-score"></p>
-	</details>
-	
-	<details open>
-		<summary>7. Cosine Similarity Classificaion</summary>
-		<p class="text-area" id="cosine-similarity-result"></p>
-	</details>
+		<div class="accordion-item">
+			<h2 class="accordion-header">
+				<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+					data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="false"
+					aria-controls="panelsStayOpen-collapseFour">
+					4. Word Embeddings for old (masked) half
+				</button>
+			</h2>
+			<div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse mx-2 my-1">
+				<label class="fw-bold fs-7" for="cosine-similarity-tokenized-new">Tokenized Masked Text</label>
+				<p class="text-area" id="cosine-similarity-tokenized-new"></p>
+				<label class="fw-bold fs-7" for="cosine-similarity-word-embeddings-new">Calculated Embeddings</label>
+				<p class="text-area" id="cosine-similarity-word-embeddings-new"></p>
+			</div>
+		</div>
+
+		<div class="accordion-item">
+			<h2 class="accordion-header">
+				<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+					data-bs-target="#panelsStayOpen-collapseFive" aria-expanded="false"
+					aria-controls="panelsStayOpen-collapseFive">
+					5. Word Embeddings for new (regenerated) half
+				</button>
+			</h2>
+			<div id="panelsStayOpen-collapseFive" class="accordion-collapse collapse mx-2 my-1">
+				<label class="fw-bold fs-7" for="cosine-similarity-tokenized-new">Tokenized Regenerated Text</label>
+				<p class="text-area" id="cosine-similarity-tokenized-old"></p>
+				<label class="fw-bold fs-7" for="cosine-similarity-word-embeddings-old">Calculated Embeddings</label>
+				<p class="text-area" id="cosine-similarity-word-embeddings-old"></p>
+			</div>
+		</div>
+
+		<div class="accordion-item">
+			<h2 class="accordion-header">
+				<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+					data-bs-target="#panelsStayOpen-collapseSix" aria-expanded="false"
+					aria-controls="panelsStayOpen-collapseSix">
+					6. Cosine Similarity Score </button>
+			</h2>
+			<div id="panelsStayOpen-collapseSix" class="accordion-collapse collapse mx-2 my-1">
+				<p class="text-area" id="cosine-similarity-score"></p>
+			</div>
+		</div>
+	</div>
+
+	<div class="mt-2 alert alert-success">
+		<h3 class="text-area text-center fw-bold" id="cosine-similarity-result"></h3>
+	</div>
 
 </div>
 

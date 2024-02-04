@@ -1,63 +1,47 @@
 @import url("colors.css");
 @import url("detection-ui.css");
 
-body {
-	background-color: #1c1e1f;
-	color: rgb(var(--primary-color));
-	font-family: Inter, sans-serif;
+* {
+  font-family: apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial,
+    sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !important;
+}
 
-	width: 100vw;
-	height: 100vh;
-	overflow-x: hidden;
+body {
+  background-color: #1c1e1f;
+  color: rgb(var(--primary-color));
+  font-family: Inter, sans-serif;
+
+  width: 100vw;
+  height: 100vh;
+  overflow-x: hidden;
 }
 
 /* item-selector */
 
-#item-selector-container {
-	display: flex;
-	flex-direction: column;
-	margin: 1%;
-}
-
 #item-selector {
-	display: flex;
-	flex-direction: row;
-	user-select: none;
-	gap: 2vw;
+  user-select: none;
 }
 
 #item-selector > h3 {
-	position: relative;
-	cursor: pointer;
-	opacity: 0.8;
-	transition: all 0.4s ease-in-out;
+  cursor: pointer;
+  opacity: 0.8;
+  transition: all 0.4s ease-in-out;
 }
 
 #item-selector > h3:hover {
-	opacity: 1;
-	scale: 1.1;
+  opacity: 1;
+  scale: 1.1;
 }
 
 #item-selector-slider {
-	position: relative;
-	bottom: 0;
-	width: 0;
-	height: 0.2vh;
-	margin: -1vw;
-	margin-top: 0vw;
-	background-color: rgba(var(--secondary-color), 0.9);
-	transition:  all 0.5s ease-in-out;
+  height: 0.2vh;
+  margin: -1vw;
+  background-color: rgba(var(--secondary-color), 0.9);
+  transition: all 0.5s ease-in-out;
 }
 
 /* title */
+
 #title {
-	font-family: apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
-	color: rgb(var(--secondary-color));
-	margin: 1%;
-}
-
-
-#note {
-	margin: 1%;
-	margin-top: 3%;
+  color: rgb(var(--secondary-color));
 }
