@@ -3,7 +3,6 @@ import re
 import six
 from nltk.stem.porter import PorterStemmer
 
-
 stemmer = PorterStemmer()
 
 def tokenize(text, stopwords = []):
