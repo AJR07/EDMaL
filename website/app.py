@@ -107,4 +107,4 @@ def hello_world():
         "prune": prune,
     })
 
-app.run(port=8000, debug=True)
+app.run()
