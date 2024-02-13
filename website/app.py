@@ -6,9 +6,6 @@ from src.edit_distance import edit_distance
 from src.ngram import ngram
 from src.rfcsvm import rfc, svm
 
-import warnings
-warnings.filterwarnings('ignore', category=UserWarning, message='TypedStorage is deprecated')
-
 app = Flask(__name__, template_folder="static")
 
 #! APIs
@@ -107,4 +104,5 @@ def hello_world():
         "prune": prune,
     })
 
-app.run()
+if __name__ == '__main__':
+   app.run()
