@@ -4,6 +4,14 @@ buttonSVM.addEventListener("click", async () => {
 	buttonSVM.classList.add("disabled");
 	buttonSVM.disabled = true;
 
+	let text = document.getElementById("svm-text").value;
+	if (text.split(" ").length < 10) {
+		alert("Please enter at least 10 words.");
+		buttonSVM.disabled = false;
+		buttonSVM.classList.remove("disabled");
+		return;
+	}
+
 	const resultElements = [
 		document.getElementById("svm-text-pruning-result"),
 		document.getElementById("svm-mask-result1"),
@@ -22,12 +30,6 @@ buttonSVM.addEventListener("click", async () => {
 
 	try {
 		//! prune data
-		let text = document.getElementById("svm-text").value;
-		if (text.split(" ").length < 10) {
-			alert("Please enter at least 10 words.");
-			return;
-		}
-
 		let response = await fetch("/api/prune", {
 			method: "POST",
 			body: JSON.stringify({

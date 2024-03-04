@@ -4,6 +4,14 @@ buttonRFC.addEventListener("click", async () => {
 	buttonRFC.classList.add("disabled");
 	buttonRFC.disabled = true;
 
+	let text = document.getElementById("rfc-text").value;
+	if (text.split(" ").length < 10) {
+		alert("Please enter at least 10 words.");
+		buttonRFC.disabled = false;
+		buttonRFC.classList.remove("disabled");
+		return;
+	}
+
 	const resultElements = [
 		document.getElementById("rfc-text-pruning-result"),
 		document.getElementById("rfc-mask-result1"),
@@ -22,12 +30,6 @@ buttonRFC.addEventListener("click", async () => {
 
 	try {
 		//! prune data
-		let text = document.getElementById("rfc-text").value;
-		if (text.split(" ").length < 10) {
-			alert("Please enter at least 10 words.");
-			return;
-		}
-
 		let response = await fetch("/api/prune", {
 			method: "POST",
 			body: JSON.stringify({

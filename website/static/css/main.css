@@ -38,14 +38,25 @@ body {
 }
 
 #item-selector-slider {
+  position: relative;
   height: 0.2vh;
-  margin: -1%;
+  margin-left: -1%;
   background-color: rgba(var(--secondary-color), 0.9);
   transition: all 0.5s ease-in-out;
 }
 
-/* title */
+@media (max-width: 768px) {
+  #download-buttons {
+    flex-direction: column;
+  }
+}
 
-#title {
-  color: rgb(var(--secondary-color));
+@media (min-width: 768px) {
+  #download-buttons {
+    flex-direction: row;
+  }
+}
+
+.w-94 {
+  width: 94%;
 }

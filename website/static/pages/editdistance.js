@@ -1,7 +1,16 @@
-const buttonEditDistance = document.getElementById("edit-distance-run")
+const buttonEditDistance = document.getElementById("edit-distance-run");
+
 buttonEditDistance.addEventListener("click", async () => {
 	buttonEditDistance.classList.add("disabled");
 	buttonEditDistance.disabled = true;
+
+	let text = document.getElementById("edit-distance-text").value;
+	if (text.split(" ").length < 10) {
+		alert("Please enter at least 10 words.");
+		buttonEditDistance.disabled = false;
+		buttonEditDistance.classList.remove("disabled");
+		return;
+	}
 
 	const resultElements = [
 		document.getElementById("edit-distance-text-pruning-result"),
@@ -20,12 +29,6 @@ buttonEditDistance.addEventListener("click", async () => {
 
 	try {
 		//! prune data
-		let text = document.getElementById("edit-distance-text").value;
-		if (text.split(" ").length < 10) {
-			alert("Please enter at least 10 words.");
-			return;
-		}
-
 		let response = await fetch("/api/prune", {
 			method: "POST",
 			body: JSON.stringify({

@@ -6,6 +6,7 @@
 	<!-- Required meta tags -->
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='assets/search.png') }}">
 
 	<!-- styles -->
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -21,11 +22,13 @@
 
 <body>
 	<div class="navbar navbar-expand-lg navbar-dark bg-dark">
-		<div class="container-fluid me-4">
+		<div class="container-fluid me-1">
 			<h1 class="navbar-brand fw-bolder">EDMaL</h1>
-			<div class="d-flex gap-1 align-items-center">
-				<p class=nav-item text-end m-0 me-2">Developed by Ang Jun Ray <br /> with guidance from Dr Chieu Hai
-					Leong</p> <a href="https://github.com/AJR07/EDMaL" class="navbar-brand">
+			<div class="d-flex gap-1 align-items-center w-25">
+				<p class="nav-item text-end m-0 me-2 d-none d-lg-block secondary">
+					Developed by Ang Jun Ray with guidance from Dr Chieu Hai Leong
+				</p>
+				<a href="https://github.com/AJR07/EDMaL" class="navbar-brand">
 					<img src="./static/assets/github.png" alt="github-link" width="50" />
 				</a>
 			</div>
@@ -33,29 +36,45 @@
 	</div>
 
 	<div id="title" class="m-3">
-		<h1 class=" d-inline-block fs-1 fw-bold">E</h1>
-		<h2 class="d-inline-block fs-3">hanced</h2>
-		<h1 class="d-inline-block fs-1 fw-bold">&#160;D</h1>
-		<h2 class="d-inline-block fs-3">etection of AI-generated text using</h2>
-		<h1 class="d-inline-block fs-1 fw-bold">&#160;Ma</h1>
-		<h2 class="d-inline-block fs-3">chine</h2>
-		<h1 class="d-inline-block fs-1 fw-bold">&#160;L</h1>
-		<h2 class="d-inline-block fs-3">earning</h2>
+		<div class="w-100 d-flex flex-column align-items-center">
+			<img src="{{url_for('static', filename='assets/search.png')}}" alt="EDMaL" class="w-25" />
+			<div id="button-container" class="d-flex flex-wrap justify-content-center">
+				<div class="inline">
+					<h1 class="d-inline-block fs-1 fw-bold">E</h1>
+					<h2 class="d-inline-block fs-3 text-wrap">nhanced</h2>
+				</div>
+				<div class="inline">
+					<h1 class="d-inline-block fs-1 fw-bold">&#160;D</h1>
+					<h2 class="d-inline-block fs-3 text-wrap">etection of AI-generated text using</h2>
+				</div>
+				<div class="inline">
+					<h1 class="d-inline-block fs-1 fw-bold">&#160;Ma</h1>
+					<h2 class="d-inline-block fs-3 text-wrap">chine</h2>
+				</div>
+				<div class="inline">
+					<h1 class="d-inline-block fs-1 fw-bold">&#160;L</h1>
+					<h2 class="d-inline-block fs-3 text-wrap">earning</h2>
+				</div>
+			</div>
+		</div>
 	</div>
 
-	<div id="download-buttons" class="d-flex g-2">
+	<div id="download-buttons" class="d-flex">
 		<a class="m-3 w-100" download href="{{url_for('static', filename='assets/Report.pdf')}}">
-			<button type="button" class="btn btn-dark w-100">Download Report</button>
+			<button type="button" class="btn btn-success w-94">Download Report</button>
+		</a>
+		<a class="m-3 w-100" download href="{{url_for('static', filename='assets/Poster.pdf')}}">
+			<button type="button" class="btn btn-success w-94">Download Poster</button>
 		</a>
 		<a class="m-3 w-100" download href="{{url_for('static', filename='assets/svm.pkl')}}">
-			<button type="button" class="btn btn-dark w-100">Download SVM Model</button>
+			<button type="button" class="btn btn-success w-94">Download SVM Model</button>
 		</a>
 		<a class="m-3 w-100" download href="{{url_for('static', filename='assets/rfc.pkl')}}">
-			<button type="button" class="btn btn-dark w-100">Download RFC Model</button>
+			<button type="button" class="btn btn-success w-94">Download RFC Model</button>
 		</a>
 	</div>
 
-	<div id="note" class="bg-dark alert m-3 d-flex gap-2 flex-column justify-content-center" role="alert">
+	<div id="note" class="bg-dark alert m-3 d-flex gap-2 flex-column justify-content-center secondary" role="alert">
 		NOTE: For the purposes of this demo, some parameters have been changed:
 		<ul>
 			<li><b>Regeneration Number:</b> K = 1 (instead of the optimal <b>K = 5</b> configuration)</li>

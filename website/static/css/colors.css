@@ -1,4 +1,17 @@
 :root {
-	--primary-color: 236, 235, 158;
-	--secondary-color: 156, 239, 157;
+  --primary-color: 110, 226, 255;
+  --secondary-color: 110, 175, 255;
+  --background-color: rgba(11, 8, 32, 0.441);
+}
+
+.primary {
+  color: rgb(var(--primary-color));
+}
+
+.secondary {
+  color: rgb(var(--secondary-color)) !important;
+}
+
+.background {
+  background-color: var(--background-color);
 }

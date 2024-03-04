@@ -1,7 +1,15 @@
-const buttonCosineSimilarity = document.getElementById("cosine-similarity-run")
+const buttonCosineSimilarity = document.getElementById("cosine-similarity-run");
 buttonCosineSimilarity.addEventListener("click", async () => {
 	buttonCosineSimilarity.classList.add("disabled");
 	buttonCosineSimilarity.disabled = true;
+
+	let text = document.getElementById("cosine-similarity-text").value;
+	if (text.split(" ").length < 10) {
+		alert("Please enter at least 10 words.");
+		buttonCosineSimilarity.disabled = false;
+		buttonCosineSimilarity.classList.remove("disabled");
+		return;
+	}
 
 	const resultElements = [
 		document.getElementById("cosine-similarity-text-pruning-result"),
